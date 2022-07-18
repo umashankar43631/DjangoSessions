@@ -1,0 +1,45 @@
+{% extends '../base.html' %}
+
+{% block css %}
+    #container{
+        display: flex;
+        flex-direction: column;
+        align: center;
+    }
+    img{
+        width: 300px;
+        height: 300px;
+    }
+    .related-image{
+        width: 100px;
+        height: 100px;
+    }
+    #recent{
+        display: flex;
+        align: center;
+    }
+
+{% endblock %}
+
+
+{% block page_title %}
+    Product
+{% endblock %}
+
+
+
+{% block body %}
+    <div id="container">
+        <img src="{{image}}" alt="" class="main-image">
+        <h2>{{title}}</h2>
+        <p>{{description}}</p>
+        
+        <div id="recent">
+            {% for product in recently_viewed %}
+            <img src="{{product.image_url}}" alt="" class="related-image">
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

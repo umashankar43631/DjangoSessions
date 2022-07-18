@@ -1,0 +1,33 @@
+{% extends '../base.html' %}
+
+{% block css%}
+    #container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    img{
+        width: 100px;
+        height: 100px;
+    }
+
+{% endblock %}
+
+
+
+{% block page_title %}
+    Products Page
+{% endblock %}
+
+
+
+{% block body %}
+    <div id="container">
+        <h2>Products</h2>
+        {% for product in products %}
+            <a href="{% url 'product' product.id %}" ><h3>{{product.title}}</h3></a>
+            <img src="{{product.image_url}}" alt="Product Image" />
+        {% endfor %}
+    </div>
+
+{% endblock %}
